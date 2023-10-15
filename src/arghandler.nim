@@ -11,7 +11,7 @@ proc handle*(args: seq[string]): Action =
   elif args.len == 1:
     let arg = args[0].strip
   
-    if arg == "?":
+    if arg == "--help" or arg == "-h":
       helpQuit()
     else:
       let percent = arg.endsWith('%')
