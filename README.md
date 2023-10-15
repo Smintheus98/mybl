@@ -16,7 +16,7 @@ This could be done by a udev-rule for example.
 Another way is to change the ownership of the binary to root and set the s-bit.
 The script `rootify.sh` does exactly this.
 ```
-$ sudo ./rootify.sh
+$ ./rootify.sh
 ```
 
 ### Usage:
