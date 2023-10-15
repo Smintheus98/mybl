@@ -4,8 +4,10 @@ import global, arghandler, sysbacklight
 
 proc getBacklight(percent: bool): string =
   if percent:
-    let percVal = (getBlDevBrightness() * 100 / getBlDevMaxBrightness()).round.int
-    return fmt"{percVal}%"
+    let absVal = getBlDevBrightness()
+    let maxVal = getBlDevMaxBrightness()
+    let percVal = (absVal * 100 / maxVal).round.int
+    return fmt"{absVal}/{maxVal}: {percVal}%"
   else:
     return $getBlDevBrightness()
 
