@@ -17,13 +17,14 @@ proc actDec*(val: Natural; percent: bool): Action = Action(kind: Dec, value: val
 
 
 const help = """
+
 mybl - minimal backlight manager based on system files
 
 Usage:
   mybl [OPTION]
 Options:
-                  - get current backlight in percent
-  ?               - show usage
+                  - get current backlight (absolute values and percent)
+  --help  -h      - show usage
   [+-]<int>[%]    - change backlight absolute or in percent
 """
 
