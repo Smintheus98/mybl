@@ -4,23 +4,30 @@ type Path = string
 
 const base: Path = "/sys/class/backlight"
 
-proc findBlDevDir(): Path =
-  let dirs = base.walkDir().toSeq()
+proc findBlDevDirs(): seq[Path] =
+  let dirs = base.walkDir().toSeq().mapIt(it.path)
   if dirs.len == 0:
     raise newException(IOError,"No Backlight Device found")
-  return dirs[0].path
+  return dirs
 
+proc findBlDevDir(num: Natural = 0): Path =
+  let dirs = findBlDevDirs()
+  if dirs.len < num:
+    raise newException(IOError,"Device-number not found")
+  return dirs[num]
 
-proc getBlDevMaxBrightness*(): Natural =
-  let file = findBlDevDir() / "max_brightness"
+const defaultBlDev = findBlDevDir(0)
+
+proc getBlDevMaxBrightness*(blDev: Path = defaultBlDev): Natural =
+  let file = blDev / "max_brightness"
   file.readFile.strip.parseInt()
 
-proc getBlDevBrightness*(): Natural =
-  let file = findBlDevDir() / "brightness"
+proc getBlDevBrightness*(blDev: Path = defaultBlDev): Natural =
+  let file = blDev / "brightness"
   file.readFile.strip.parseInt()
 
-proc setBlDevBrightness*(value: Natural) =
-  let file = findBlDevDir() / "brightness"
+proc setBlDevBrightness*(value: Natural, blDev: Path = defaultBlDev) =
+  let file = blDev / "brightness"
   file.writeFile($value & "\n")
 
 proc clipBrightness*(value: int): Natural =
