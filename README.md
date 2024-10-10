@@ -45,3 +45,6 @@ $ mybl +10%   # increase backlight by 10%
 $ mybl -1000  # decrease backlight by an absolute value of 1000
 $ mybl 50%    # set backlight to 50%
 ```
+
+### TODO:
+[ ] choose device number on cli
