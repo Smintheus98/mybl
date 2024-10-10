@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.2"
+version       = "0.1.3"
 author        = "Yannic Kitten"
 description   = "Backlight tool based on system files"
 license       = "GPL-3.0-or-later"
