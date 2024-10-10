@@ -37,10 +37,3 @@ proc helpQuit*() =
   echo help
   QuitSuccess.quit
 
-import std/strutils
-proc startsWith*(s: string; prefix: set[char]): bool {.deprecated.} =
-  for c in prefix:
-    if s.startsWith(c):
-      return true
-  return false
-
