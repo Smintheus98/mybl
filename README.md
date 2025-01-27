@@ -3,7 +3,7 @@ Simple monitor brightness tool based on system files and independent from X11/Wa
 
 ### Install
 To install this program you need a [Nim](https://github.com/nim-lang/Nim/) compiler and the nimble package manager (which comes with Nim).
-The recommended method to install it is to use [choosenim](https://github.com/dom96/choosenim).
+The recommended method to install it is to use [choosenim](https://github.com/nim-lang/choosenim).
 ```
 $ git clone ...
 $ cd mybl
@@ -47,4 +47,4 @@ $ mybl 50%    # set backlight to 50%
 ```
 
 ### TODO:
-[ ] choose device number on cli
+ - [ ] choose device number on cli
